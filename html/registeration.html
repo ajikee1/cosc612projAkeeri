@@ -62,5 +62,27 @@
 
     <input type="submit" name="submit" /> &nbsp;
 </form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
+<script>
+    $("#registration").submit(function(event)
+    {
+        event.preventDefault();
+        var post_url = "../registeration.php";
+        var form_data = $(this).serialize(); //Encode form elements for submission
+        $.post( post_url, form_data, function(response)
+        {
+            //if response says "Registration successful", open the activation.html
+            if(response.match("Registration successful"))
+            {
+                window.location.href = "activate.html"
+            }
+            else
+            {
+                alert(response);  //display the error from the database
+            }
+        });
+    });
+</script>
 </body>
 </html>
