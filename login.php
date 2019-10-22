@@ -37,11 +37,13 @@
 
             if (($passwordFromDB == $caffeinePassword) && ($activationIndicatorFromDB == $activationIndicatorDesiredStatus))
             {
-                header("Location: caffeineHome.php");
+                echo 'Login Success';
+                //header("Location: caffeineHome.php");
                 exit;
             }
             else
             {
+                echo 'Login Fail';
                 unset($_SESSION['caffeineEmail']);
                 unset($_SESSION['caffeineUsername']);
                 echo('Login Failed');
