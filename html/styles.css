@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+/* Registration Page */
+
+#registrationtitle{
+    position: relative;
+    width: 300px;
+    height: 30px;
+    text-align: center;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    font-family: 'Anton', sans-serif;
+}
+
+#registration{
+    position: relative;
+    height: 450px;
+    width: 150px;
+    margin: 30px auto;
+    text-align: left;
+    font-family: 'Anton', sans-serif;
+}
+
+#registration input, select{
+    position: relative;
+    margin: 10px auto;
+    font-family: 'Anton', sans-serif;
+    border-radius: 4px;
+}
+
+#registration input{
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+#registration #submit{
+    width: 100px;
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 4px;
+}
+
+#registration #submit:hover{
+    color: red;
+    border: 2px solid black;
+}

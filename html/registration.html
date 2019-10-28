@@ -3,19 +3,20 @@
     <title>
         CaffeineIOT User Registration
     </title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
-<h2>New User Registration</h2>
+<h2 id="registrationtitle">New User Registration</h2>
 <!--Registration Form -->
 <form id ="registration" method="post" action="../registeration.php">
 
-    First Name: <input type="text" name="firstName">
-    Last Name: <input type="text" name="LastName">
-    Street: <input type="text" name="Street">
-    County: <input type="text" name="County">
-    State:
-    <select name="State" size="4">
+    First Name <input type="text" name="firstName"><br>
+    Last Name <input type="text" name="LastName"><br>
+    Street <input type="text" name="Street"><br>
+    County <input type="text" name="County"><br>
+    State
+    <select name="State" size="1">
         <option>AK</option>
         <option>AL</option>
         <option>AR</option>
@@ -54,13 +55,13 @@
         <option>WI</option>
         <option>WV</option>
         <option>WY</option>
-    </select>
+    </select><br>
 
-    Zip: <input type="text" name="Zip">
+    Zip: <input type="text" name="Zip"><br>
 
-    Email: <input type="text" size="40" class="emailBox" name="email">
+    Email: <input type="text" size="30" class="emailBox" name="email"><br>
 
-    <input type="submit" name="submit" /> &nbsp;
+    <input id="submit" type="submit" name="submit" /> &nbsp;
 </form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
