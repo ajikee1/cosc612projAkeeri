@@ -1,6 +1,7 @@
 <?php
+    session_start();
     include 'dbConnection.php';
-
+    $_SESSION['productNameField'] = null;
 
     $keyword = $_GET["q"];
 
@@ -25,10 +26,11 @@
 
             if (mysqli_num_rows($result) >= 0) {
                 while ($row = mysqli_fetch_array($result)) {
+                        $_SESSION['productNameField'] = $row['productName'];
                     ?>
                     <div class="productItem">
                         <div class="product-image">
-                            <a href=" <?php echo $row['productName'] ?>"><img
+                            <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img
                                     src="<?php echo 'images/' . $row['productImage']; ?>" width="400" height="200">
                         </div>
 
@@ -55,7 +57,7 @@
                 ?>
                 <div class="productItem">
                     <div class="product-image">
-                        <a href=" <?php echo $row['productName'] ?>"><img
+                        <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img
                                 src="<?php echo 'images/' . $row['productImage']; ?>" width="400" height="200">
                     </div>
 
