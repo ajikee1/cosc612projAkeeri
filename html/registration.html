@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<h2>New User Registration</h2>
+<h2 id="registrationtitle">New User Registration</h2>
 <!--Registration Form -->
 <form id ="registration">
 
@@ -15,8 +15,8 @@
     Last Name: <input type="text" name="LastName">
     Street: <input type="text" name="Street">
     County: <input type="text" name="County">
-    State:
-    <select name="State" size="4">
+    State:<br>
+    <select name="State" size="1">
         <option>AK</option>
         <option>AL</option>
         <option>AR</option>
@@ -55,13 +55,13 @@
         <option>WI</option>
         <option>WV</option>
         <option>WY</option>
-    </select>
+    </select><br>
 
     Zip: <input type="text" name="Zip">
 
     Email: <input type="text" size="40" class="emailBox" name="email">
 
-    <input type="submit" name="submit" /> &nbsp;
+    <input id="submit" type="submit" name="submit" /> &nbsp;
 </form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>

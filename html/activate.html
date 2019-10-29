@@ -3,19 +3,20 @@
     <title>
         CaffeineIOT Account Activation
     </title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
     <h2 id="head">Activate</h2>
     <!--Login Form -->
 
-    <div id="activation">
-    <form id ="activate">
+    <div id="activation" class="activation">
+        <form id ="activate">
 
-        Email: <input type="email" name="registeredEmail">
-        ActivationCode: <input type="text" name="activationCode">
-        <button type="submit" name="activateButton" id="activateBtn">Activate</button>
-    </form>
+            Email: <input type="email" name="registeredEmail">
+            ActivationCode: <input type="text" name="activationCode">
+            <button id="activatesubmit" type="submit" name="activateButton" id="activateBtn">Activate</button>
+        </form>
     </div>
 
     <!--Displays to prompt the customer for credentials if activation successful -->
