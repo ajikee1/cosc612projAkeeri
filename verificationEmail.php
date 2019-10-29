@@ -2,6 +2,13 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
+
+/*$email ='ajikee1@icloud.com';
+$firstName = 'John';
+$lastName = 'Doe';
+$actCode = 1234; */
+
+
 function email($email, $firstName, $lastName, $actCode)
 {
     require '../vendor/autoload.php';
@@ -38,11 +45,10 @@ function email($email, $firstName, $lastName, $actCode)
 
 
     if (!$mail->send()) {
-        echo "Activation code mailed!";
+        echo "Unable to mail activation code!";
     }
     else
     {
-         echo "Unable to mail activation code!";
     }
 }
 
