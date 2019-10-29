@@ -1,5 +1,8 @@
 <?php
 
+//Author: Ajith V Keerikkattil
+//updated: 10/29/2019
+
 use PHPMailer\PHPMailer\PHPMailer;
 
 

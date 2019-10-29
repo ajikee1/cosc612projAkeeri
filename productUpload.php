@@ -1,5 +1,8 @@
 <?php
 
+//Author: Ajith V Keerikkattil
+//updated: 10/29/2019
+
 include 'dbConnection.php';
 
 $status = uploadProduct($servername, $username,$password, $db);
