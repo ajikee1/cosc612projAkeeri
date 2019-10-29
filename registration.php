@@ -62,8 +62,7 @@ function registration($servername, $username, $password, $db, $firstName, $lastN
     $statement->execute();
 
 
-    if ($statement != null)
-    {
+    if ($statement != null) {
         echo "Registration successful";
         //call the email function to email the activation code
         email($email, $firstName, $lastName, $actCode);

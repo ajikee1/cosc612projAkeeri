@@ -49,9 +49,7 @@ function email($email, $firstName, $lastName, $actCode)
 
     if (!$mail->send()) {
         echo "Unable to mail activation code!";
-    }
-    else
-    {
+    } else {
     }
 }
 
