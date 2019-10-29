@@ -4,49 +4,39 @@ include 'dbConnection.php';
 ?>
 <html>
 
-<head>
-    <title>
-        CaffeineIOT HomePage
-    </title>
-</head>
-<body>
-<!-- Login & Registration Button -->
-<button type="button" id="registerButton">Register</button>
-<button type="button" id="LoginButton">Login</button>
+    <head>
+        <title>
+            CaffeineIOT HomePage
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-<h1>Our top products: </h1>
+    </head>
+    <body>
+        <!-- Login & Registration Button -->
+        <button type="button" id="registerButton">Register</button>
+        <button type="button" id="LoginButton">Login</button>
 
+        <!-- Search box -->
+        <input type="text" id="searchBox" placeholder="Enter product name here..." onkeypress="showResults(this.value)">
 
-<div id="product-grid">
-    <?php
+        <h1>Our top products: </h1>
 
-    $dbConnection = mysqli_connect($servername, $username, $password, $db);
+        <div id="searchResults"> </div>
 
-    //query to get the top ten products from the database
-    $query = "SELECT * FROM products";
-
-    $result = mysqli_query($dbConnection, $query);
-
-    if (mysqli_num_rows($result) >= 0)
-    {
-        while ($row = mysqli_fetch_array($result))
+        <script>
+            function showResults(str)
             {
-                ?>
-                <div class="productItem">
-                    <div class="product-image">
-                        <a href=" <?php echo $row['productName'] ?>"><img src="<?php echo 'images/'. $row['productImage']; ?>" width="400" height="200">
-                    </div>
+                var xhttp = new XMLHttpRequest();
 
-                    <div class="product-tile-footer">
-                        <div class="product-title"><?php echo $row['productName']; ?></div>
-                        <div class="product-price"><?php echo $row['productPrice']; ?></div>
-                    </div>
-                </div>
-                <?php
+                xhttp.onreadystatechange=function() {
+                    if (this.readyState==4 && this.status==200) {
+                        document.getElementById("searchResults").innerHTML = xhttp.responseText;
+                    }
+                }
+                xhttp.open("GET", "getProducts.php?q="+ str , true)
+                xhttp.send();
             }
-        }
-    ?>
-</div>
+        </script>
 
 </body>
 
