@@ -42,8 +42,8 @@ function getSearchProducts($servername, $username, $password, $db, $keyword)
                     <table>
                         <tr>
                             <td><a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img
-                                            src="<?php echo 'images/' . $row['productImage']; ?>" width="200px" height="100px"> &nbsp;&nbsp;</td>
-                            <td><?php echo $row['productName']; ?> &nbsp;&nbsp;</td>
+                                            src="<?php echo 'images/' . $row['productImage']; ?>" width="200px" height="100px"></td>
+                            <td> &nbsp;&nbsp;<?php echo $row['productName']; ?> &nbsp;&nbsp;</td>
                             <td><?php echo "$ " .$row['productPrice']; ?> </td>
                         </tr>
                     </table>
@@ -70,8 +70,8 @@ function getAllProducts($servername, $username, $password, $db)
                     <table>
                         <tr>
                             <td><a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img
-                                            src="<?php echo 'images/' . $row['productImage']; ?>" width="200px" height="100px"> &nbsp;&nbsp;</td>
-                            <td><?php echo $row['productName']; ?> &nbsp;&nbsp;</td>
+                                            src="<?php echo 'images/' . $row['productImage']; ?>" width="200px" height="100px"></td>
+                            <td>&nbsp;&nbsp; <?php echo $row['productName']; ?> &nbsp;&nbsp;</td>
                             <td><?php echo "$ " .$row['productPrice']; ?> </td>
                         </tr>
                     </table>

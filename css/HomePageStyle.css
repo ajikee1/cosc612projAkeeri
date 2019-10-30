@@ -26,13 +26,36 @@ button{
     font-size: 20px;
 }
 
+#submit{
+    background-color: white;
+    font-family: 'Bungee';
+    color: black;
+    border: 2px solid black;
+    font-size: 20px;
+    height: 6%;
+}
+
 #search {
     float: right;
     padding-bottom: 2%;
     padding-right: 15%;
 }
 
-input{
+
+input[type=text]{
+    font-family: 'Bungee';
+    height: 5%;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+selected{
+    font-family: 'Bungee';
+}
+
+
+#searchBox
+{
     height:60px;
     width: 100%;
     font-family: 'Bungee';
@@ -54,8 +77,10 @@ input{
     background-color: whitesmoke;
     margin: 20% auto;  /* modal position */
     padding: 30px;
-    width: 70%;
+    width: 30%;
     height: 50%;
+    overflow: auto;
+    background-color: white;
 }
 
 .modalTwo{
@@ -105,4 +130,10 @@ input{
     width: 100%;
     padding: 10px;
     text-align: center;
+}
+
+#registration
+{
+    text-align: center;
+    font-size: 18px;
 }

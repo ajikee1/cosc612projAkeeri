@@ -55,16 +55,19 @@ include 'dbConnection.php';
 
             <span id="closeButton">&times;</span>
 
-            <h2 id="registrationTitle">New User Registration</h2>
+            <h3 id="registrationTitle" align="center">New User Registration</h3>
 
             <!--Registration Form -->
              <form id ="registration">
-
-                First Name: <input type="text" name="firstName">
-                Last Name: <input type="text" name="LastName">
-                Street: <input type="text" name="Street">
-                County: <input type="text" name="County">
-                State:<br>
+                 First Name:  <input type="text" name="firstName" size="20"> <br>
+                 <br>
+                Last Name:  <input type="text" name="LastName" size="20"> <br>
+                 <br>
+                Street:  <input type="text" name="Street" size="30"> <br>
+                 <br>
+                County:  <input type="text" name="County" size="30"> <br>
+                 <br>
+                State:
                 <select name="State" size="1">
                     <option>AK</option>
                     <option>AL</option>
@@ -104,12 +107,12 @@ include 'dbConnection.php';
                     <option>WI</option>
                     <option>WV</option>
                     <option>WY</option>
-                </select><br>
+                </select> <br> <br>
 
-                Zip: <input type="text" name="Zip">
-
-                Email: <input type="text" size="40" class="emailBox" name="email">
-
+                Zip: <input type="text" name="Zip"> <br>
+                <br>
+                Email: <input type="text" size="40" class="emailBox" name="email"> <br>
+                <br>
                 <input id="submit" type="submit" name="submit" /> &nbsp;
             </form>
 
