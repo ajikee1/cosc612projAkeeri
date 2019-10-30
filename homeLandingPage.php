@@ -4,6 +4,34 @@
 
 include 'dbConnection.php';
 
+function getTopProducts($servername, $username, $password, $db)
+{
+    $dbConnection = mysqli_connect($servername, $username, $password, $db);
+
+    $query = "SELECT * FROM products";
+
+    $result = mysqli_query($dbConnection, $query);
+
+    if (mysqli_num_rows($result) >= 0) {
+        while ($row = mysqli_fetch_array($result)) {
+            ?>
+            <div class="productItem">
+                <div class="productDesc" style="background-color: #aaaaaa">
+                    <table>
+                        <tr>
+                            <td><a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img
+                                            src="<?php echo 'images/' . $row['productImage']; ?>" width="200px" height="100px"></td>
+                            <td>&nbsp;&nbsp; <?php echo $row['productName']; ?> &nbsp;&nbsp;</td>
+                            <td><?php echo "$ " .$row['productPrice']; ?> </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <?php
+        }
+    }
+}
+
 ?>
 <html>
     <head>
@@ -32,6 +60,10 @@ include 'dbConnection.php';
         <input type="text" id="searchBox" size="50"  placeholder="Enter product name here..." onkeypress="showResults(this.value)">
     </div>
 
+    <div id="allResults">
+        <?php  getTopProducts($servername, $username, $password, $db);?>
+    </div>
+
 
     <div id="searchResults"></div>
     <script>
@@ -40,6 +72,8 @@ include 'dbConnection.php';
 
             xhttp.onreadystatechange = function () {
                 if (this.readyState == 4 && this.status == 200) {
+                    var hideAllResults = document.getElementById("allResults");
+                    hideAllResults.style.display = "none";
                     document.getElementById("searchResults").innerHTML = xhttp.responseText;
                 }
             };
