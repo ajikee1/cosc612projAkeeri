@@ -1,13 +1,18 @@
 body{
-    background: whitesmoke;
+    background: white;
+    font-family: 'Bungee';
+    font-size: 22px;
 }
 
+h1{
+    text-align: center;
+}
 #header{
     border: 1px solid black;
     padding-top: 5%;
     padding-right: 2%;
     padding-bottom: 5%;
-    background-color: darkgray;
+    background-color: darkblue;
 }
 #buttonDiv{
     float: right;
@@ -15,20 +20,22 @@ body{
 
 button{
     background-color: white;
+    font-family: 'Bungee';
     color: black;
     border: 2px solid black;
-    font-weight: bolder;
     font-size: 20px;
 }
 
 #search {
     float: right;
-    padding-top: 2%;
+    padding-bottom: 2%;
     padding-right: 15%;
 }
 
 input{
-    height:30px
+    height:60px;
+    width: 100%;
+    font-family: 'Bungee';
 }
 
 .modal{
@@ -81,4 +88,21 @@ input{
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.productItem {
+    display: table;
+    align-content: center;
+    clear: both;
+    width: 40%;
+    height: 20%;
+    padding-left: 25%;
+}
+
+.productDesc {
+    display: table-cell;
+    float: left;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
 }

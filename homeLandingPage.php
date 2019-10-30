@@ -7,12 +7,13 @@ include 'dbConnection.php';
 ?>
 <html>
     <head>
-        <title>
-            CaffeineIOT HomePage
-        </title>
+            <title>
+                CaffeineIOT HomePage
+            </title>
 
-        <link rel="stylesheet" type="text/css" href=" ./css/HomePageStyle.css"
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <link rel="stylesheet" type="text/css" href=" ./css/HomePageStyle.css"
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
 
     </head>
     <body>
@@ -26,11 +27,11 @@ include 'dbConnection.php';
     <!----------------------------------End Login & Registration Button ------------------------------->
 
     <!-----------------AJAX Live Search -------------------->
+    <h1>Our top products: </h1>
     <div id="search">
-        <input type="text" id="searchBox" size="35"  placeholder="Enter product name here..." onkeypress="showResults(this.value)">
+        <input type="text" id="searchBox" size="50"  placeholder="Enter product name here..." onkeypress="showResults(this.value)">
     </div>
 
-    <h1>Our top products: </h1>
 
     <div id="searchResults"></div>
     <script>

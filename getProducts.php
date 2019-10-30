@@ -14,6 +14,17 @@ if (strlen($keyword) > 0) {
     getAllProducts($servername, $username, $password, $db);
 }
 
+?>
+    <html>
+    <head>
+        <title>
+            CaffeineIOT HomePage
+        </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
+    </head>
+
+<?php
 function getSearchProducts($servername, $username, $password, $db, $keyword)
 {
     $dbConnection = mysqli_connect($servername, $username, $password, $db);
@@ -27,14 +38,15 @@ function getSearchProducts($servername, $username, $password, $db, $keyword)
             $_SESSION['productNameField'] = $row['productName'];
             ?>
             <div class="productItem">
-                <div class="product-image">
-                    <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img
-                                src="<?php echo 'images/' . $row['productImage']; ?>" width="400" height="200">
-                </div>
-
-                <div class="product-tile-footer">
-                    <div class="product-title"><?php echo $row['productName']; ?></div>
-                    <div class="product-price"><?php echo $row['productPrice']; ?></div>
+                <div class="productDesc" style="background-color: #aaaaaa">
+                    <table>
+                        <tr>
+                            <td><a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img
+                                            src="<?php echo 'images/' . $row['productImage']; ?>" width="200px" height="100px"> &nbsp;&nbsp;</td>
+                            <td><?php echo $row['productName']; ?> &nbsp;&nbsp;</td>
+                            <td><?php echo "$ " .$row['productPrice']; ?> </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <?php
@@ -54,14 +66,15 @@ function getAllProducts($servername, $username, $password, $db)
         while ($row = mysqli_fetch_array($result)) {
             ?>
             <div class="productItem">
-                <div class="product-image">
-                    <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img
-                                src="<?php echo 'images/' . $row['productImage']; ?>" width="400" height="200">
-                </div>
-
-                <div class="product-tile-footer">
-                    <div class="product-title"><?php echo $row['productName']; ?></div>
-                    <div class="product-price"><?php echo $row['productPrice']; ?></div>
+                <div class="productDesc" style="background-color: #aaaaaa">
+                    <table>
+                        <tr>
+                            <td><a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img
+                                            src="<?php echo 'images/' . $row['productImage']; ?>" width="200px" height="100px"> &nbsp;&nbsp;</td>
+                            <td><?php echo $row['productName']; ?> &nbsp;&nbsp;</td>
+                            <td><?php echo "$ " .$row['productPrice']; ?> </td>
+                        </tr>
+                    </table>
                 </div>
             </div>
             <?php
