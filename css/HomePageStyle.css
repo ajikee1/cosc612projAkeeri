@@ -51,13 +51,33 @@ input{
     height: 50%;
 }
 
-#closeButton{
+.modalTwo{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content-two{
+    background-color: whitesmoke;
+    margin: 20% auto;  /* modal position */
+    padding: 30px;
+    width: 35%;
+    height: 35%;
+}
+
+#closeButton, #closeButtonTwo{
     color: #ccc;
     float: right;
     font-size: 30px;
 }
 
-.closeButton:hover, .closeButton:focus{
+#closeButton:hover, #closeButton:focus, #closeButtonTwo:hover, #closeButtonTwo:focus{
     color: #000;
     text-decoration: none;
     cursor: pointer;

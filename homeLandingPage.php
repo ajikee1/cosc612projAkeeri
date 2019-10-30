@@ -114,7 +114,7 @@ include 'dbConnection.php';
 
             <!--Javascript to open the registration modal -->
              <script>
-                var modal = document.getElementById("registrationModal");
+                var registrationModal = document.getElementById("registrationModal");
                 var registrationBtn = document.getElementById("registerButton"); //modal open button
                 var registrationModalCloseBtn = document.getElementById("closeButton");
 
@@ -122,14 +122,14 @@ include 'dbConnection.php';
 
                 function openRegistrationModal()
                     {
-                     modal.style.display = 'block';
+                        registrationModal.style.display = 'block';
                     }
 
                 registrationModalCloseBtn.addEventListener('click', closeRegistrationModal);
 
                 function closeRegistrationModal()
                     {
-                    modal.style.display = 'none';
+                        registrationModal.style.display = 'none';
                     }
             </script>
 
@@ -160,5 +160,67 @@ include 'dbConnection.php';
 
     <!-------------------------------------------------------------- End Registration Modal -------------------------------------------------------------------------------->
 
+    <!-------------------------------------------------------------- Login Modal ----------------------------------------------------------------------------------->
+    <div id="loginModal" class="modalTwo">
+        <div class="modal-content-two">
+            <span id="closeButtonTwo">&times;</span>
+
+            <h2 id="loginTitle">Customer Registration</h2>
+
+            <!--Login Form -->
+            <form id ="login">
+
+                Username: <input type="text" name="caffeineUsername">
+                Password: <input type="password" name="caffeinePassword">
+                <input id="loginsubmit" type="submit" name="submit" /> &nbsp;
+            </form>
+
+            <!--Javascript to open the login modal -->
+            <script>
+                var loginModal = document.getElementById("loginModal");
+                var loginBtn = document.getElementById("LoginButton"); //modal open button
+                var loginModalCloseBtn = document.getElementById("closeButtonTwo"); //modal close button
+
+                loginBtn.addEventListener('click', openLoginModal);
+
+                function openLoginModal()
+                {
+                    loginModal.style.display = 'block';
+                }
+
+                loginModalCloseBtn.addEventListener('click', closeLoginModal);
+
+                function closeLoginModal()
+                {
+                    loginModal.style.display = 'none';
+                }
+            </script>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
+            <!--submit the login form and get response -->
+            <script>
+                $("#login").submit(function(event)
+                {
+                    event.preventDefault();
+                    var post_url = "login.php";
+                    var form_data = $(this).serialize(); //Encode form elements for submission
+                    $.post( post_url, form_data, function(response)
+                    {
+                        //if response says "Registration successful", open the activation.html
+                        if(response.match("Login Success"))
+                        {
+                            window.location.href = "caffeineHome.php";  //not coded yet
+                        }
+                        else
+                        {
+                            alert("Login failed. Please check credentials and try again!");  //display the error from the database
+                            window.location.reload();
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </div>
+    <!-------------------------------------------------------------- End Login Modal -------------------------------------------------------------------------------->
 </body>
 </html>
