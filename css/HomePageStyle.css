@@ -1,0 +1,64 @@
+body{
+    background: whitesmoke;
+}
+
+#header{
+    border: 1px solid black;
+    padding-top: 5%;
+    padding-right: 2%;
+    padding-bottom: 5%;
+    background-color: darkgray;
+}
+#buttonDiv{
+    float: right;
+}
+
+button{
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+#search {
+    float: right;
+    padding-top: 2%;
+    padding-right: 15%;
+}
+
+input{
+    height:30px
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content{
+    background-color: whitesmoke;
+    margin: 20% auto;  /* modal position */
+    padding: 30px;
+    width: 70%;
+    height: 50%;
+}
+
+#closeButton{
+    color: #ccc;
+    float: right;
+    font-size: 30px;
+}
+
+.closeButton:hover, .closeButton:focus{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
