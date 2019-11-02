@@ -146,7 +146,7 @@ function getTopProducts($servername, $username, $password, $db)
                 <br>
                 Email: <input type="text" size="40" class="emailBox" name="email"> <br>
                 <br>
-                <input id="submit" type="submit" name="submit" /> &nbsp;
+                <input id="registrationSubmit" type="submit" name="submit" value="REGISTER"/> &nbsp;
             </form>
 
             <!--Javascript to open the registration modal -->
@@ -189,7 +189,6 @@ function getTopProducts($servername, $username, $password, $db)
 
                             let activationModal = document.getElementById("activationModal");
                             activationModal.style.display = 'block';
-                            // window.location.href = "../activate.html"
                         }
                         else
                         {
@@ -207,14 +206,15 @@ function getTopProducts($servername, $username, $password, $db)
         <div class="modal-content-two">
             <span id="closeButtonTwo">&times;</span>
 
-            <h2 id="loginTitle">Customer Registration</h2>
+            <h3 id="loginTitle" align="center" >LOGIN</h3>
 
             <!--Login Form -->
             <form id ="login">
-
-                Username: <input type="text" name="caffeineUsername">
-                Password: <input type="password" name="caffeinePassword">
-                <input id="loginsubmit" type="submit" name="submit" /> &nbsp;
+                Username: <input type="text" name="caffeineUsername"> <br>
+                <br>
+                Password: <input type="password" name="caffeinePassword"> <br>
+                <br>
+                <button id="loginSubmit" type="submit" name="logineButton" id="activateBtn">LOGIN</button>
             </form>
 
             <!--Javascript to open the login modal -->
@@ -271,17 +271,23 @@ function getTopProducts($servername, $username, $password, $db)
             <span id="closeButtonThree">&times;</span>
 
             <h3 id="activationTitle" align="center">Activate Account</h3>
+
             <form id ="activateFrom">
-                Email: <input type="email" name="registeredEmail">
-                ActivationCode: <input type="text" name="activationCode">
-                <button id="activatesubmit" type="submit" name="activateButton" id="activateBtn">Activate</button>
+                Email: <input type="email" name="registeredEmail"><br>
+                <br>
+                ActivationCode: <input type="text" name="activationCode"><br>
+                <br>
+                <button id="activateSubmit" type="submit" name="activateButton" id="activateBtn">Activate</button>
             </form>
 
         <!--Displays to prompt the customer for credentials if activation successful -->
             <form id ="chooseCredentialsForm" method="post" action="addCredentials.php">
-                Username: <input type="text" name="userName">
-                Password: <input type="password" name="password">
-                <button type="submit" name="activateBtn" id="chooseCredsBtn">Finish Registration</button>
+                <br>
+                Username: <input type="text" name="userName"><br>
+                <br>
+                Password: <input type="password" name="password"> <br>
+                <br>
+                <button id="finishRegistrationSubmit" type="submit" name="finishRegistrationButton" id="activateBtn">COMPLETE</button>
             </form>
         </div>
     </div>
@@ -306,6 +312,13 @@ function getTopProducts($servername, $username, $password, $db)
                     x.style.display = "block"; //show the choose credentials form
                     y.style.display = "none"; //hide the activation form
 
+                    var activationModalCloseBtn = document.getElementById("closeButtonThree"); //modal close button
+                    activationModalCloseBtn.addEventListener('click', closeActivationModal);
+
+                    function closeActivationModal()
+                    {
+                        activationModalCloseBtn.style.display = 'none';
+                    }
                 }
                 else
                 {

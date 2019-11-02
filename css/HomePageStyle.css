@@ -4,8 +4,9 @@ body{
     font-size: 22px;
 }
 
-h1{
+h3{
     text-align: center;
+    font-size: 30px;
 }
 #header{
     border: 1px solid black;
@@ -26,13 +27,13 @@ button{
     font-size: 20px;
 }
 
-#submit{
+#registrationSubmit, #loginSubmit, #activationSubmit, #finishRegistrationSubmit{
     background-color: white;
     font-family: 'Bungee';
     color: black;
     border: 2px solid black;
     font-size: 20px;
-    height: 6%;
+    height: 40px;
 }
 
 #search {
@@ -42,11 +43,13 @@ button{
 }
 
 
-input[type=text]{
+input[type=text],input[type=password], input[type=email] {
     font-family: 'Bungee';
     height: 5%;
     border: 2px solid black;
+    line-height: 50px;
     border-radius: 5px;
+    padding: 10px;
 }
 
 selected{
@@ -56,9 +59,11 @@ selected{
 
 #searchBox
 {
-    height:60px;
+    height:50px;
     width: 100%;
     font-family: 'Bungee';
+    font-size: 30px;
+    text-align: center;
 }
 
 .modal{
@@ -78,7 +83,7 @@ selected{
     margin: 20% auto;  /* modal position */
     padding: 30px;
     width: 30%;
-    height: 50%;
+    height: 45%;
     overflow: auto;
     background-color: white;
 }
@@ -99,8 +104,8 @@ selected{
     background-color: whitesmoke;
     margin: 20% auto;  /* modal position */
     padding: 30px;
-    width: 35%;
-    height: 35%;
+    width: 25%;
+    height: 25%;
 }
 
 #closeButton, #closeButtonTwo, #closeButtonThree{
@@ -132,10 +137,10 @@ selected{
     text-align: center;
 }
 
-#registration
+#registration, #login, #activateFrom, #chooseCredentialsForm
 {
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 
@@ -156,7 +161,7 @@ selected{
     margin: 20% auto;  /* modal position */
     padding: 30px;
     width: 35%;
-    height: 35%;
+    height: 25%;
 }
 
 #chooseCredentialsForm
