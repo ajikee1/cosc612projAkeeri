@@ -82,7 +82,6 @@ function getTopProducts($servername, $username, $password, $db)
         }
     </script>
     <!-----------------End AJAX Live Search ----------------->
-
     <!-------------------------------------------------------------- Registration Modal ----------------------------------------------------------------------------------->
     <div id="registrationModal" class="modal">
         <div class="modal-content">
@@ -184,7 +183,13 @@ function getTopProducts($servername, $username, $password, $db)
                         //if response says "Registration successful", open the activation.html
                         if(response.match("Registration successful"))
                         {
-                            window.location.href = "../activate.html"
+                            //document.getElementById('registrationModal').innerHTML = document.getElementById('activateFrom').innerHTML;
+                            let registrationModal = document.getElementById("registrationModal");
+                            registrationModal.style.display = 'none';
+
+                            let activationModal = document.getElementById("activationModal");
+                            activationModal.style.display = 'block';
+                            // window.location.href = "../activate.html"
                         }
                         else
                         {
@@ -197,7 +202,6 @@ function getTopProducts($servername, $username, $password, $db)
     </div>
 
     <!-------------------------------------------------------------- End Registration Modal -------------------------------------------------------------------------------->
-
     <!-------------------------------------------------------------- Login Modal ----------------------------------------------------------------------------------->
     <div id="loginModal" class="modalTwo">
         <div class="modal-content-two">
@@ -260,5 +264,56 @@ function getTopProducts($servername, $username, $password, $db)
         </div>
     </div>
     <!-------------------------------------------------------------- End Login Modal -------------------------------------------------------------------------------->
-</body>
+    <!---------------------------------------------------------------Activation Modal ------------------------------------------------------------------------------->
+
+    <div id="activationModal" class="modalThree">
+        <div class="modal-content-three">
+            <span id="closeButtonThree">&times;</span>
+
+            <h3 id="activationTitle" align="center">Activate Account</h3>
+            <form id ="activateFrom">
+                Email: <input type="email" name="registeredEmail">
+                ActivationCode: <input type="text" name="activationCode">
+                <button id="activatesubmit" type="submit" name="activateButton" id="activateBtn">Activate</button>
+            </form>
+
+        <!--Displays to prompt the customer for credentials if activation successful -->
+            <form id ="chooseCredentialsForm" method="post" action="addCredentials.php">
+                Username: <input type="text" name="userName">
+                Password: <input type="password" name="password">
+                <button type="submit" name="activateBtn" id="chooseCredsBtn">Finish Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
+    <script>
+        $("#activateFrom").submit(function(event)
+        {
+            event.preventDefault();
+            var post_url = "activate.php";
+            var form_data = $(this).serialize(); //Encode form elements for submission
+            $.post( post_url, form_data, function(response)
+            {
+                //if response says "activation success", display the div to choose credentials and hide the activation div
+                if(response.match("Activation Success"))
+                {
+                    var x = document.getElementById("chooseCredentialsForm");
+                    var y = document.getElementById("activateFrom");
+                    var heading = document.getElementById("activationTitle")
+
+                    heading.replaceWith( "Choose Credentials" ); //change the heading of the page
+                    x.style.display = "block"; //show the choose credentials form
+                    y.style.display = "none"; //hide the activation form
+
+                }
+                else
+                {
+                    alert("Activation failed,try again");
+                }
+            });
+        });
+    </script>
+    <!---------------------------------------------------------------End Activation Modal ------------------------------------------------------------------------------->
+    </body>
 </html>

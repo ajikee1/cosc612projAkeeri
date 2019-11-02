@@ -103,7 +103,7 @@ selected{
     height: 35%;
 }
 
-#closeButton, #closeButtonTwo{
+#closeButton, #closeButtonTwo, #closeButtonThree{
     color: #ccc;
     float: right;
     font-size: 30px;
@@ -136,4 +136,30 @@ selected{
 {
     text-align: center;
     font-size: 18px;
+}
+
+
+.modalThree{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+}
+.modal-content-three
+{
+    background-color: whitesmoke;
+    margin: 20% auto;  /* modal position */
+    padding: 30px;
+    width: 35%;
+    height: 35%;
+}
+
+#chooseCredentialsForm
+{
+    display: none;
 }
