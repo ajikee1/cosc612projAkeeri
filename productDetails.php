@@ -7,6 +7,52 @@ include 'dbConnection.php';
 
 $productName = $_GET["productName"];
 
+?>
+<head>
+    <head>
+        <title>
+            Product Details  <?php echo $productName?>
+        </title>
+
+        <link rel="stylesheet" type="text/css" href=" ./css/HomePageStyle.css">
+        <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
+
+        <style>
+            img{
+                width: 400px;
+                height: 250px;
+            }
+
+            #prodimage{
+                padding-left: 25%;
+                padding-right: 25%;
+                font-weight: lighter;
+                font-size: smaller;
+            }
+
+            p{
+                text-align: center;
+                font-size: 15px;
+            }
+
+            h5{
+                text-align: center;
+            }
+
+        </style>
+    </head>
+    <body>
+<div id="header">
+    &nbsp;&nbsp;&nbsp;&nbsp; <button type="button" id="back" onclick="window.location.href='homeLandingPage.php'">BACK</button>
+    <div id="buttonDiv">
+        <font color="white"> Hello username </font>   &nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" id="Logout" onclick="window.location.href='logout.php'">LOG OUT</button>
+    </div>
+</div>
+    </body>
+
+
+<?php
 getProductDetails($servername, $username, $password, $db, $productName);
 
 function getProductDetails($servername, $username, $password, $db, $productName)
@@ -28,12 +74,14 @@ function getProductDetails($servername, $username, $password, $db, $productName)
             ?>
 
             <div id="prodDetails">
-                <h2> <?php echo $productName; ?> </h2>
+                <h2 align="center"> <?php echo $productName; ?> </h2>
                 <div id="prodimage">
-                    <img src="<?php echo 'images/' . $productImage; ?>" width="400" height="200">
+                    <img src="<?php echo 'images/' . $productImage; ?>" border="5px">  &nbsp;&nbsp;&nbsp;&nbsp;
+                    Product price $ <?php echo $productPrice ?>
                 </div>
                 <div id="prodDescription">
-                    <p> <?php echo $productDescription; ?></p>
+                    <h5><u>Product Description</u></h5>
+                    <p><?php echo $productDescription; ?></p>
                 </div>
             </div>
             <?php

@@ -1,6 +1,6 @@
 <?php
 //Author: Ajith V Keerikkattil
-//updated: 11/01/2019
+//updated: 11/07/2019
 
 include 'dbConnection.php';
 
@@ -55,7 +55,7 @@ function getTopProducts($servername, $username, $password, $db)
     <!----------------------------------End Login & Registration Button ------------------------------->
 
     <!-----------------AJAX Live Search -------------------->
-    <h1>Our top products: </h1>
+    <h1 align="center">Our top products: </h1>
     <div id="search">
         <input type="text" id="searchBox" size="50"  placeholder="Enter product name here..." onkeypress="showResults(this.value)">
     </div>
@@ -281,11 +281,11 @@ function getTopProducts($servername, $username, $password, $db)
             </form>
 
         <!--Displays to prompt the customer for credentials if activation successful -->
-            <form id ="chooseCredentialsForm" method="post" action="addCredentials.php">
+            <form id ="chooseCredentialsForm">
+                <br><br>
+                Username: <input type="text" name="RegisterUserName"><br>
                 <br>
-                Username: <input type="text" name="userName"><br>
-                <br>
-                Password: <input type="password" name="password"> <br>
+                Password: <input type="password" name="RegisterPassword"> <br>
                 <br>
                 <button id="finishRegistrationSubmit" type="submit" name="finishRegistrationButton" id="activateBtn">COMPLETE</button>
             </form>
@@ -326,6 +326,26 @@ function getTopProducts($servername, $username, $password, $db)
                 }
             });
         });
+
+        $("#chooseCredentialsForm").submit(function(event)
+        {
+            event.preventDefault();
+            var post_url = "addCredentials.php";
+            var form_data = $(this).serialize(); //Encode form elements for submission
+            $.post( post_url, form_data, function(response)
+            {
+                //if response says "activation success", display the div to choose credentials and hide the activation div
+                if(response.match("Registration Complete"))
+                {
+                    window.location.href='homeLandingPagePost.php'
+                }
+                else
+                {
+                    alert("Registration failed! Please try again");
+                }
+            });
+        });
+
     </script>
     <!---------------------------------------------------------------End Activation Modal ------------------------------------------------------------------------------->
     </body>

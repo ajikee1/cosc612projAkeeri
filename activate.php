@@ -1,13 +1,16 @@
 <?php
 
+session_start();
     //Author: Ajith V Keerikkattil
-    //updated: 10/29/2019
+    //updated: 11/07/2019
 
 include 'dbConnection.php';
 
+$_SESSION["email"] = null;
 
 if (isset($_POST['registeredEmail'])) {
     $registeredEmail = $_POST["registeredEmail"];
+
 }
 
 if (isset($_POST['activationCode'])) {
@@ -40,6 +43,7 @@ function activate($servername, $username, $password, $db, $registeredEmail, $act
 
             if ($dbConnection->query($query2) === TRUE) {
                 echo 'Activation Success';
+                $_SESSION["email"] = $registeredEmail;
                 //header("Location: caffeineHome.php");
                 exit;
             }
