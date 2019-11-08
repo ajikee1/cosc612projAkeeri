@@ -2,8 +2,9 @@
     //Author: Ajith V Keerikkattil
     //updated: 10/29/2019
 
+    session_start();
+
     include 'dbConnection.php';
-    session.start();
 
     $_SESSION["caffeineUsername"]; $_SESSION["caffeineEmail"];
 
@@ -19,6 +20,9 @@
         $caffeinePassword= $_POST["caffeinePassword"];
     }
 
+    /*$_SESSION['caffeineUsername'] = "ajithmatrik";
+    $caffeinePassword = "test"; */
+
     //call the login function
     login($servername, $username,$password, $db, $caffeinePassword);
 
@@ -28,17 +32,21 @@
         $dbConnection = mysqli_connect($servername, $username, $password, $db);
 
         //query to get the password and email from database using username
-        $query = "SELECT email,password FROM credentials WHERE username='" . $_SESSION['caffeineUsername'] . "'";
+        $query = "SELECT email,password FROM customerCredentials WHERE username='" . $_SESSION['caffeineUsername'] . "'";
         $result = mysqli_query($dbConnection, $query);
 
         while ($row = $result->fetch_assoc())
         {
-            $emailFromDB   = $row['email'];  $_SESSION["caffeineEmail"] = $emailFromDB; //set the session variable for email
+            $emailFromDB   = $row['email'];
+            $_SESSION["caffeineEmail"] = $emailFromDB; //set the session variable for email
+
             $passwordFromDB   = $row['password']; //get the password of the user
+
             $activationIndicatorFromDB = (string) getActivationIndicator($servername, $username, $password, $db); //check to see if the account has been activated
             $activationIndicatorDesiredStatus = (string) 'true';
 
-            if (($passwordFromDB == $caffeinePassword) && ($activationIndicatorFromDB == $activationIndicatorDesiredStatus))
+            //if (($passwordFromDB == $caffeinePassword) && ($activationIndicatorFromDB == $activationIndicatorDesiredStatus))
+            if ($passwordFromDB == $caffeinePassword)
             {
                 echo 'Login Success';
                 //header("Location: caffeineHome.php");

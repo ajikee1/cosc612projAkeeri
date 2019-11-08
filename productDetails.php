@@ -23,7 +23,7 @@
         <style>
             img{
                 width: 800px;
-                height: 600px;
+                height: 580px;
             }
 
             #prodimage{
@@ -94,16 +94,57 @@
         <div id="prodDetails">
             <h2 align="center"> <?php echo $productName; ?> </h2>
 
-            <div id="prodimage">
-                <img class="img-responsive" src="<?php echo 'images/' . $productImage; ?>">  &nbsp;&nbsp;&nbsp;&nbsp;
+            <span id="prodimage">
+                <img class="img-responsive" src="<?php echo 'images/' . $productImage; ?>">  &nbsp;&nbsp;
                 <font size="4px">Product price $ <?php echo $productPrice ?> </font>
-            </div>
+
+                <form id="addToCartForm">
+                    <input type="hidden" name="addProductName" value="<?php echo $productName ?>">
+                    <input type="hidden" name="addProductPrice" value="<?php echo $productPrice ?>">
+
+                    <label for="quantity">Choose a quantity</label>
+                    <select id="quantity" class="browser-default custom-select">
+                        <option selected>0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                    <button type="button" id="AddToCartBtn">ADD TO CART</button>
+                </form>
+            </span>
 
             <div id="prodDescription">
+                <br>
                 <h5><u>Product Description</u></h5>
                 <p><?php echo $productDescription; ?></p>
             </div>
         </div>
+
+        <!--Javascript to add product to cart-->
+        <script>
+            $("#addToCartForm").submit(function(event)
+            {
+                event.preventDefault();
+                var post_url = "precartAddLogic.php";
+                var form_data = $(this).serialize(); //Encode form elements for submission
+                $.post( post_url, form_data, function(response)
+                {
+                    //if response says "Product added to cart"", open the cart page
+                    if(response.match("Product added to cart\""))
+                    {
+                        window.location.href = "customerCart.php";
+                    }
+                    else
+                    {
+                        alert("Product currently not available");  //low stock
+                    }
+                });
+            });
+        </script>
+
 
 <?php
                     }

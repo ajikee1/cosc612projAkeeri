@@ -75,10 +75,12 @@
             <!---------------------------------End Navigation Bar-------------------------------------->
 
             <!-----------------AJAX Live Search -------------------->
-            <h1 align="center">Our top products: </h1>
+            <h1 align="center">Search Results: </h1>
 
-            <div id="search" >
-                <input class="form-control input-md" type="text" id="searchBox" placeholder="SEARCH" onkeypress="showResults(this.value)">
+            <div id="search">
+                <div class="form-group w-50">
+                    <input class="form-control input-lg" type="text"  id="searchBox"  placeholder="SEARCH" onkeypress="showResults(this.value)">
+                </div>
             </div>
             <br>
 

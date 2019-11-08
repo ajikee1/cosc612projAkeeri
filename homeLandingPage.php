@@ -260,7 +260,7 @@
                         <br>
                         Password: <input type="password" name="caffeinePassword"> <br>
                         <br>
-                        <button id="loginSubmit" class="btn btn-light btn-lg" type="submit" name="logineButton" id="activateBtn">LOGIN</button>
+                        <button id="loginSubmit" class="btn btn-light btn-lg" type="submit" name="logineButton">LOGIN</button>
                     </form>
 
                     <!--Javascript to open the login modal -->
@@ -296,7 +296,7 @@
                                         //if response says "Registration successful", open the activation.html
                                         if(response.match("Login Success"))
                                             {
-                                                window.location.href = "caffeineHome.php";  //not coded yet
+                                                window.location.href = "homeLandingPagePost.php";  //not coded yet
                                             }
                                         else
                                             {

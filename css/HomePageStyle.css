@@ -12,6 +12,12 @@ body {
     padding-left: 50px;
 }
 
+#addToCartForm{
+    padding-left: 50%;
+    padding-right: 30%;
+    font-weight: lighter;
+}
+
 #formHeader{
     height: 15%;
     padding-top: 5%;
