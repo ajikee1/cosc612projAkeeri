@@ -13,26 +13,27 @@
             Product Details  <?php echo $productName?>
         </title>
 
-        <link rel="stylesheet" type="text/css" href=" ./css/HomePageStyle.css">
+        <link rel="stylesheet" type="text/css" href=" ./css/HomePageStyle.css"
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
         <style>
             img{
-                width: 400px;
-                height: 250px;
+                width: 800px;
+                height: 600px;
             }
 
             #prodimage{
-                padding-left: 25%;
-                padding-right: 25%;
                 font-weight: lighter;
                 font-size: smaller;
             }
 
-            p{
-                text-align: center;
-                font-size: 15px;
+            #prodDetails{
+                font-size: 30px;
+                font-family: "Bungee";
             }
 
             h5{
@@ -43,12 +44,30 @@
     </head>
 
     <body>
-        <div class="jumbotron">
-            <h1> <font color="white">Caffeine IOT MarketPlace</font></h1>
-            <p class="hello" align="right"><font color="white">Hello <?php echo $_SESSION["cafUserName"]?> </font> &nbsp;&nbsp;&nbsp;
-                <button type="button" id="Logout" onclick="window.location.href='logout.php'">LOG OUT</button></p>
-        </div>
+    <!----------------------------------Logout Button ----------------------------------->
+    <div class="jumbotron">
+        <h1><font color="white">Caffeine IOT MarketPlace</font></h1>
+        <p class="hello" align="right">
+            <font color="white">Hello, <?php echo $_SESSION["cafUserName"] ?> </font> &nbsp;&nbsp;&nbsp;
+            <button type="button" id="Logout" onclick="window.location.href='logout.php'">LOG OUT</button>
+        </p>
+    </div>
+    <!----------------------------------End Logout Button ------------------------------->
 
+        <!---------------------------------Navigation Bar-------------------------------------->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+            <a class="navbar-brand" href="homeLandingPagePost.php">Home</a>
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutUs.php">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contactUs.php">Contact Us</a>
+                </li>
+            </ul>
+        </nav>
+        <!---------------------------------End Navigation Bar-------------------------------------->
 
 
 <?php
@@ -76,8 +95,8 @@
             <h2 align="center"> <?php echo $productName; ?> </h2>
 
             <div id="prodimage">
-                <img class="img-responsive" src="<?php echo 'images/' . $productImage; ?>" border="5px">  &nbsp;&nbsp;&nbsp;&nbsp;
-                Product price $ <?php echo $productPrice ?>
+                <img class="img-responsive" src="<?php echo 'images/' . $productImage; ?>">  &nbsp;&nbsp;&nbsp;&nbsp;
+                <font size="4px">Product price $ <?php echo $productPrice ?> </font>
             </div>
 
             <div id="prodDescription">
