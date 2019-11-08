@@ -17,17 +17,15 @@
                     while ($row = mysqli_fetch_array($result))
                         { ?>
 
-        <div class="row">
-            <div class="col-lg-4" xmlns="http://www.w3.org/1999/html">
-                <div class="thumbnail" align="center">
-                    <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img class="img-responsive" src="<?php echo 'images/' . $row['productImage']; ?>" style="width:100%">&nbsp;</a>
-                        <div class="caption">
-                            <p> <?php echo $row['productName']; ?></p>
-                            <p><?php echo "$ " .$row['productPrice']; ?></p>
-                        </div>
-                </div>
-            </div>
-        </div>
+                            <div class="col-lg-4" xmlns="http://www.w3.org/1999/html">
+                                <div class="thumbnail" align="center">
+                                    <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img class="img-responsive" src="<?php echo 'images/' . $row['productImage']; ?>" style="width:100%;"> </a>&nbsp;
+                                        <div class="caption">
+                                            <p> <?php echo $row['productName']; ?></p>
+                                            <p><?php echo "$ " . $row['productPrice']; ?></p>
+                                        </div>
+                                </div>
+                            </div>
 
 <?php
                         }
@@ -43,7 +41,9 @@
             <link rel="stylesheet" type="text/css" href=" ./css/HomePageStyle.css"
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
             <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
         </head>
 
@@ -53,22 +53,41 @@
                 <div class="jumbotron">
                     <h1> <font color="white">Caffeine IOT MarketPlace</font></h1>
                         <p class="hello" align="right">
-                            <button type="button" id="registerButton">Register</button> &nbsp;&nbsp;&nbsp;
-                            <button type="button" id="LoginButton">Login</button>
+                            <button type="button" class="btn btn-light btn-lg" id="registerButton">Register</button> &nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-light btn-lg" id="LoginButton">Login</button>
                         </p>
                 </div>
                 <!----------------------------------End Login & Registration Button ------------------------------->
 
+                <!---------------------------------Navigation Bar-------------------------------------->
+                <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+                    <a class="navbar-brand" href="homeLandingPagePost.php">Home</a>
+                    <!-- Links -->
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="aboutUs.php">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactUs.php">Contact Us</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!---------------------------------End Navigation Bar-------------------------------------->
+
                 <!-----------------AJAX Live Search -------------------->
                 <h1 align="center">Our top products: </h1>
                 <div id="search">
-                    <input class="form-control input-lg" type="text"  id="searchBox"  placeholder="SEARCH" onkeypress="showResults(this.value)">
+                    <div class="form-group w-50">
+                        <input class="form-control input-lg" type="text"  id="searchBox"  placeholder="SEARCH" onkeypress="showResults(this.value)">
+                    </div>
                 </div>
                 <br>
 
                 <!--Display all products -->
                 <div id="allResults">
-                    <?php  getTopProducts($servername, $username, $password, $db);?>
+                    <div class="row">
+                        <?php  getTopProducts($servername, $username, $password, $db);?>
+                    </div>
                 </div>
 
                 <!--Display all search results -->
@@ -94,72 +113,89 @@
             <!-----------------End AJAX Live Search ----------------->
 
             <!-------------------------------------------------------------- Registration Modal ----------------------------------------------------------------------------------->
-            <div id="registrationModal" class="modal">
-                <div class="modal-content">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
+                <div id="registrationModal" class="modalOne">
+                <div class="modal-content-One">
 
                     <span id="closeButton">&times;</span>
-
-                    <h3 id="registrationTitle" align="center">New User Registration</h3>
-
-                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+                    <div id="formHeader">
+                        <h3 id="registrationTitle" align="center"><font color="white">New User Registration </font></h3>
+                    </div>
 
                     <!--Registration Form -->
                     <form id ="registration">
-                        First Name:  <input type="text" name="firstName" size="20"> <br>
-                        <br>
-                        Last Name:  <input type="text" name="LastName" size="20"> <br>
-                        <br>
-                        Street:  <input type="text" name="Street" size="30"> <br>
-                        <br>
-                        County:  <input type="text" name="County" size="30"> <br>
-                        <br>
-                        State:
-                        <select class="form-control"name="State" id="state" size="1">
-                            <option>AK</option>
-                            <option>AL</option>
-                            <option>AR</option>
-                            <option>AZ</option>
-                            <option selected>DE</option>
-                            <option>FL</option>
-                            <option>GA</option>
-                            <option>HI</option>
-                            <option>IA</option>
-                            <option>IL</option>
-                            <option>KS</option>
-                            <option>KY</option>
-                            <option>LA</option>
-                            <option>ME</option>
-                            <option>MI</option>
-                            <option>MO</option>
-                            <option>MS</option>
-                            <option>MT</option>
-                            <option>NC</option>
-                            <option>ND</option>
-                            <option>NE</option>
-                            <option>NH</option>
-                            <option>NJ</option>
-                            <option>NM</option>
-                            <option>NV</option>
-                            <option>OH</option>
-                            <option>OK</option>
-                            <option>OR</option>
-                            <option>PA</option>
-                            <option>SC</option>
-                            <option>SD</option>
-                            <option>TN</option>
-                            <option>TX</option>
-                            <option>UT</option>
-                            <option>VA</option>
-                            <option>WI</option>
-                            <option>WV</option>
-                            <option>WY</option>
-                        </select> <br> <br>
+                            <br>
+                            <div class="form-group w-50">
+                                <input class="form-control" type="text" name="firstName" placeholder="First Name"> <br>
+                            </div>
 
-                        Zip: <input type="text" name="Zip"> <br>
+                            <div class="form-group w-50">
+                                <input class="form-control" type="text" name="LastName" placeholder="Last Name"> <br>
+                            </div>
+
+                            <div class="form-group w-75">
+                                <input class="form-control" type="text" name="Street" placeholder="STREET ADDRESS"> <br>
+                            </div>
+
+                            <div class="form-group w-50">
+                                <input class="form-control" type="text" name="County" placeholder="COUNTY" > <br>
+                            </div>
+
+                        <div class="form-group w-25">
+                            State <select class="form-control" name="State" id="state" size="1"> <br>
+                                <option>AK</option>
+                                <option>AL</option>
+                                <option>AR</option>
+                                <option>AZ</option>
+                                <option selected>DE</option>
+                                <option>FL</option>
+                                <option>GA</option>
+                                <option>HI</option>
+                                <option>IA</option>
+                                <option>IL</option>
+                                <option>KS</option>
+                                <option>KY</option>
+                                <option>LA</option>
+                                <option>ME</option>
+                                <option>MI</option>
+                                <option>MO</option>
+                                <option>MS</option>
+                                <option>MT</option>
+                                <option>NC</option>
+                                <option>ND</option>
+                                <option>NE</option>
+                                <option>NH</option>
+                                <option>NJ</option>
+                                <option>NM</option>
+                                <option>NV</option>
+                                <option>OH</option>
+                                <option>OK</option>
+                                <option>OR</option>
+                                <option>PA</option>
+                                <option>SC</option>
+                                <option>SD</option>
+                                <option>TN</option>
+                                <option>TX</option>
+                                <option>UT</option>
+                                <option>VA</option>
+                                <option>WI</option>
+                                <option>WV</option>
+                                <option>WY</option>
+                            </select>
+                            <br>
+                        </div>
+
+                        <div class="form-group w-25">
+                            <input class="form-control" type="text" name="Zip" placeholder="ZIP CODE" > <br>
+                        </div>
+
+                        <div class="form-group w-75">
+                            <input class="form-control" type="text" class="emailBox" name="email" placeholder="EMAIL ADDRESS">
+                        </div>
+
                         <br>
-                        Email: <input type="text" size="40" class="emailBox" name="email"> <br>
-                        <br>
-                        <input id="registrationSubmit" type="submit" name="submit" value="REGISTER"/> &nbsp;
+                        <button id="registrationSubmit" class="btn btn-success" type="submit" name="submit" id="RegisterBtn">REGISTER</button>
+                        </div>
                     </form>
 
                 <!--Javascript to open the registration modal -->
@@ -208,7 +244,6 @@
                                  });
                                 });
                 </script>
-                </div>
             </div>
             <!-------------------------------------------------------------- End Registration Modal -------------------------------------------------------------------------------->
 
@@ -225,7 +260,7 @@
                         <br>
                         Password: <input type="password" name="caffeinePassword"> <br>
                         <br>
-                        <button id="loginSubmit" type="submit" name="logineButton" id="activateBtn">LOGIN</button>
+                        <button id="loginSubmit" class="btn btn-light btn-lg" type="submit" name="logineButton" id="activateBtn">LOGIN</button>
                     </form>
 
                     <!--Javascript to open the login modal -->
@@ -288,7 +323,7 @@
                         <br>
                         ActivationCode: <input type="text" name="activationCode"><br>
                         <br>
-                        <button id="activateSubmit" type="submit" name="activateButton" id="activateBtn">Activate</button>
+                        <button id="activateSubmit" class="btn btn-light btn-lg" type="submit" name="activateButton" id="activateBtn">Activate</button>
                     </form>
 
                     <!--Displays to prompt the customer for credentials if activation successful -->
@@ -298,7 +333,7 @@
                         <br>
                         Password: <input type="password" name="RegisterPassword"> <br>
                         <br>
-                        <button id="finishRegistrationSubmit" type="submit" name="finishRegistrationButton" id="activateBtn">COMPLETE</button>
+                        <button id="finishRegistrationSubmit" class="btn btn-light btn-lg" type="submit" name="finishRegistrationButton" id="activateBtn">COMPLETE</button>
                     </form>
                 </div>
             </div>

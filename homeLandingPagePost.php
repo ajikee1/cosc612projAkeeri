@@ -17,17 +17,15 @@
                     while ($row = mysqli_fetch_array($result))
                         { ?>
 
-                                <div class="row">
                                      <div class="col-lg-4" xmlns="http://www.w3.org/1999/html">
                                         <div class="thumbnail" align="center">
-                                            <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img class="img-responsive" src="<?php echo 'images/' . $row['productImage']; ?>" style="width:100%">&nbsp;
+                                            <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img class="img-responsive" src="<?php echo 'images/' . $row['productImage']; ?>" style="width:100%;">&nbsp;
                                             <div class="caption">
                                                 <p> <?php echo $row['productName']; ?></p>
                                                 <p><?php echo "$ " . $row['productPrice']; ?></p>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
 <?php
                         }
@@ -43,7 +41,9 @@
             <link rel="stylesheet" type="text/css" href=" ./css/HomePageStyle.css"
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
             <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
         </head>
 
@@ -59,16 +59,33 @@
             </div>
             <!----------------------------------End Logout Button ------------------------------->
 
+            <!---------------------------------Navigation Bar-------------------------------------->
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+                <a class="navbar-brand" href="homeLandingPagePost.php">Home</a>
+                <!-- Links -->
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutUs.php">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contactUs.php">Contact Us</a>
+                    </li>
+                </ul>
+            </nav>
+            <!---------------------------------End Navigation Bar-------------------------------------->
+
             <!-----------------AJAX Live Search -------------------->
             <h1 align="center">Our top products: </h1>
 
-            <div id="search">
-                <input class="form-control input-lg" type="text" id="searchBox" placeholder="SEARCH" onkeypress="showResults(this.value)">
+            <div id="search" >
+                <input class="form-control input-md" type="text" id="searchBox" placeholder="SEARCH" onkeypress="showResults(this.value)">
             </div>
             <br>
 
             <div id="allResults">
-                <?php getTopProducts($servername, $username, $password, $db); ?>
+                <div class="row">
+                    <?php getTopProducts($servername, $username, $password, $db); ?>
+                </div>
             </div>
 
             <div id="searchResults"></div>

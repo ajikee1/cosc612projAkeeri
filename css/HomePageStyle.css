@@ -2,25 +2,39 @@
 
 body {
     background: white;
-    font-family: 'Bungee';
     font-size: 22px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Bungee';
 }
 
-.hello{
-    padding-right: 50px;
+.hello, #search{
+    padding-left: 50px;
+}
+
+#formHeader{
+    height: 15%;
+    padding-top: 5%;
+    background-color: darkblue;
 }
 
 
 p{
     font-size: 15px;
     font-weight: normal;
+    font-family: 'Bungee';
+}
+
+h1, .navbar-brand, .navbar-nav{
+    font-family: 'Bungee';
 }
 
 .jumbotron {
     background-color:darkblue !important;
-    padding-top: 2%;
+    padding-top: 5%;
     text-align: center;
-    padding-bottom: 1%;
+    font-family: 'Bungee';
+    padding-bottom: 2%;
 }
 
 #buttonDiv {
@@ -32,7 +46,10 @@ button {
     font-family: 'Bungee';
     color: black;
     border: 2px solid black;
-    font-size: 20px;
+}
+
+.form-control{
+    width: 60%;
 }
 
 #registrationSubmit, #loginSubmit, #activationSubmit, #finishRegistrationSubmit {
@@ -54,26 +71,22 @@ input[type=password], input[type=email] {
     padding: 10px;
 }
 
-input[type=text]
+input[type=text], label
 {
     border-color: black;
     border-radius: 5px;
-}
-
-selected {
+    font-size: small;
     font-family: 'Bungee';
 }
 
-
-#searchBox {
-    height: 50px;
-    width: 100%;
+select {
     font-family: 'Bungee';
-    font-size: 30px;
-    text-align: center;
+    border-radius: 5px;
+    font-size: small;
 }
 
-.modal {
+
+.modalOne {
     display: none;
     position: fixed;
     z-index: 1;
@@ -85,14 +98,15 @@ selected {
     background-color: rgba(0, 0, 0, 0.9);
 }
 
-.modal-content {
+.modal-content-One {
     background-color: whitesmoke;
-    margin: 20% auto; /* modal position */
-    padding: 30px;
-    width: 60%;
-    height: 45%;
+    margin: 10% auto; /* modal position */
+    padding: 10px;
+    width: 40%;
+    height: 75%;
     overflow: auto;
-    background-color: white;
+    font-family: 'Bungee';
+    min-height: 75%;
 }
 
 .modalTwo {
@@ -111,8 +125,9 @@ selected {
     background-color: whitesmoke;
     margin: 20% auto; /* modal position */
     padding: 30px;
-    width: 50%;
-    height: 30%;
+    width: 30%;
+    height: 25%;
+    font-family: 'Bungee';
 }
 
 #closeButton, #closeButtonTwo, #closeButtonThree {
@@ -168,6 +183,7 @@ selected {
     padding: 30px;
     width: 35%;
     height: 25%;
+    font-family: 'Bungee';
 }
 
 #chooseCredentialsForm {
