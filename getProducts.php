@@ -37,17 +37,17 @@ function getSearchProducts($servername, $username, $password, $db, $keyword)
         while ($row = mysqli_fetch_array($result)) {
             $_SESSION['productNameField'] = $row['productName'];
             ?>
-            <div class="productItem">
-                <div class="productDesc" style="background-color: #aaaaaa">
-                    <table>
-                        <tr>
-                            <td><a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img
-                                            src="<?php echo 'images/' . $row['productImage']; ?>" width="200px" height="100px"></td>
-                            <td> &nbsp;&nbsp;<?php echo $row['productName']; ?> &nbsp;&nbsp;</td>
-                            <td><?php echo "$ " .$row['productPrice']; ?> </td>
-                        </tr>
-                    </table>
+            <div class="row">
+            <div class="col-lg-4">
+                <div class="thumbnail" align="center">
+                    <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img class="img-responsive"
+                                                                                                     src="<?php echo 'images/' . $row['productImage']; ?>" style="width:100%">&nbsp;</a>
+                        <div class="caption">
+                            <p> <?php echo $row['productName']; ?></p>
+                            <p><?php echo "$ " .$row['productPrice']; ?></p>
+                        </div>
                 </div>
+            </div>
             </div>
             <?php
         }
@@ -65,17 +65,17 @@ function getAllProducts($servername, $username, $password, $db)
     if (mysqli_num_rows($result) >= 0) {
         while ($row = mysqli_fetch_array($result)) {
             ?>
-            <div class="productItem">
-                <div class="productDesc" style="background-color: #aaaaaa">
-                    <table>
-                        <tr>
-                            <td><a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img
-                                            src="<?php echo 'images/' . $row['productImage']; ?>" width="200px" height="100px"></td>
-                            <td>&nbsp;&nbsp; <?php echo $row['productName']; ?> &nbsp;&nbsp;</td>
-                            <td><?php echo "$ " .$row['productPrice']; ?> </td>
-                        </tr>
-                    </table>
+            <div class="row">
+            <div class="col-lg-4">
+                <div class="thumbnail" align="center">
+                    <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img class="img-responsive"
+                                                                                                     src="<?php echo 'images/' . $row['productImage']; ?>" style="width:100%">&nbsp;</a>
+                        <div class="caption">
+                            <p> <?php echo $row['productName']; ?></p>
+                            <p><?php echo "$ " .$row['productPrice']; ?></p>
+                        </div>
                 </div>
+            </div>
             </div>
             <?php
         }

@@ -16,6 +16,7 @@ $productName = $_GET["productName"];
 
         <link rel="stylesheet" type="text/css" href=" ./css/HomePageStyle.css">
         <link href='https://fonts.googleapis.com/css?family=Bungee' rel='stylesheet'>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
         <style>
             img{
@@ -72,11 +73,10 @@ function getProductDetails($servername, $username, $password, $db, $productName)
             $productStock = $row['stock'];
 
             ?>
-
             <div id="prodDetails">
                 <h2 align="center"> <?php echo $productName; ?> </h2>
                 <div id="prodimage">
-                    <img src="<?php echo 'images/' . $productImage; ?>" border="5px">  &nbsp;&nbsp;&nbsp;&nbsp;
+                    <img class="img-responsive" src="<?php echo 'images/' . $productImage; ?>" border="5px">  &nbsp;&nbsp;&nbsp;&nbsp;
                     Product price $ <?php echo $productPrice ?>
                 </div>
                 <div id="prodDescription">

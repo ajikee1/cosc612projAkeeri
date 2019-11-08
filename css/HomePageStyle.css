@@ -1,26 +1,33 @@
-body{
+
+
+body {
     background: white;
     font-family: 'Bungee';
     font-size: 22px;
 }
 
-h3, h2{
-    text-align: center;
-    font-size: 30px;
+.hello{
+    padding-right: 50px;
 }
 
-#header{
-    border: 1px solid black;
-    padding-top: 5%;
-    padding-right: 2%;
-    padding-bottom: 5%;
-    background-color: darkblue;
+
+p{
+    font-size: 15px;
+    font-weight: normal;
 }
-#buttonDiv{
+
+.jumbotron {
+    background-color:darkblue !important;
+    padding-top: 2%;
+    text-align: center;
+    padding-bottom: 1%;
+}
+
+#buttonDiv {
     float: right;
 }
 
-button{
+button {
     background-color: white;
     font-family: 'Bungee';
     color: black;
@@ -28,7 +35,7 @@ button{
     font-size: 20px;
 }
 
-#registrationSubmit, #loginSubmit, #activationSubmit, #finishRegistrationSubmit{
+#registrationSubmit, #loginSubmit, #activationSubmit, #finishRegistrationSubmit {
     background-color: white;
     font-family: 'Bungee';
     color: black;
@@ -37,14 +44,8 @@ button{
     height: 40px;
 }
 
-#search {
-    float: right;
-    padding-bottom: 2%;
-    padding-right: 15%;
-}
 
-
-input[type=text],input[type=password], input[type=email] {
+input[type=password], input[type=email] {
     font-family: 'Bungee';
     height: 5%;
     border: 2px solid black;
@@ -53,21 +54,26 @@ input[type=text],input[type=password], input[type=email] {
     padding: 10px;
 }
 
-selected{
+input[type=text]
+{
+    border-color: black;
+    border-radius: 5px;
+}
+
+selected {
     font-family: 'Bungee';
 }
 
 
-#searchBox
-{
-    height:50px;
+#searchBox {
+    height: 50px;
     width: 100%;
     font-family: 'Bungee';
     font-size: 30px;
     text-align: center;
 }
 
-.modal{
+.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -76,12 +82,12 @@ selected{
     height: 100%;
     width: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
-.modal-content{
+.modal-content {
     background-color: whitesmoke;
-    margin: 20% auto;  /* modal position */
+    margin: 20% auto; /* modal position */
     padding: 30px;
     width: 30%;
     height: 45%;
@@ -89,7 +95,7 @@ selected{
     background-color: white;
 }
 
-.modalTwo{
+.modalTwo {
     display: none;
     position: fixed;
     z-index: 1;
@@ -98,24 +104,24 @@ selected{
     height: 100%;
     width: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.9);
 }
 
-.modal-content-two{
+.modal-content-two {
     background-color: whitesmoke;
-    margin: 20% auto;  /* modal position */
+    margin: 20% auto; /* modal position */
     padding: 30px;
     width: 25%;
     height: 25%;
 }
 
-#closeButton, #closeButtonTwo, #closeButtonThree{
+#closeButton, #closeButtonTwo, #closeButtonThree {
     color: #ccc;
     float: right;
     font-size: 30px;
 }
 
-#closeButton:hover, #closeButton:focus, #closeButtonTwo:hover, #closeButtonTwo:focus{
+#closeButton:hover, #closeButton:focus, #closeButtonTwo:hover, #closeButtonTwo:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
@@ -138,14 +144,13 @@ selected{
     text-align: center;
 }
 
-#registration, #login, #activateFrom, #chooseCredentialsForm
-{
+#registration, #login, #activateFrom, #chooseCredentialsForm {
     text-align: center;
     font-size: 15px;
 }
 
 
-.modalThree{
+.modalThree {
     display: none;
     position: fixed;
     z-index: 1;
@@ -154,18 +159,17 @@ selected{
     height: 100%;
     width: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.9);
+    background-color: rgba(0, 0, 0, 0.9);
 }
-.modal-content-three
-{
+
+.modal-content-three {
     background-color: whitesmoke;
-    margin: 20% auto;  /* modal position */
+    margin: 20% auto; /* modal position */
     padding: 30px;
     width: 35%;
     height: 25%;
 }
 
-#chooseCredentialsForm
-{
+#chooseCredentialsForm {
     display: none;
 }
