@@ -89,7 +89,7 @@ selected {
     background-color: whitesmoke;
     margin: 20% auto; /* modal position */
     padding: 30px;
-    width: 30%;
+    width: 60%;
     height: 45%;
     overflow: auto;
     background-color: white;
@@ -111,8 +111,8 @@ selected {
     background-color: whitesmoke;
     margin: 20% auto; /* modal position */
     padding: 30px;
-    width: 25%;
-    height: 25%;
+    width: 50%;
+    height: 30%;
 }
 
 #closeButton, #closeButtonTwo, #closeButtonThree {
@@ -173,3 +173,7 @@ selected {
 #chooseCredentialsForm {
     display: none;
 }
+
+#state {
+    font-family: 'Bungee';
+    font-size:14px; }

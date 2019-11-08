@@ -2,13 +2,12 @@
 //Author: Ajith V Keerikkattil
 //updated: 10/29/2019
 
-session_start();
-include 'dbConnection.php';
+    session_start();
+    include 'dbConnection.php';
 
-$productName = $_GET["productName"];
+    $productName = $_GET["productName"]; ?>
 
-?>
-<head>
+<html>
     <head>
         <title>
             Product Details  <?php echo $productName?>
@@ -42,51 +41,56 @@ $productName = $_GET["productName"];
 
         </style>
     </head>
+
     <body>
-<div id="header">
-    &nbsp;&nbsp;&nbsp;&nbsp; <button type="button" id="back" onclick="window.location.href='homeLandingPage.php'">BACK</button>
-    <div id="buttonDiv">
-        <font color="white"> Hello username </font>   &nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" id="Logout" onclick="window.location.href='logout.php'">LOG OUT</button>
-    </div>
-</div>
-    </body>
+        <div class="jumbotron">
+            <h1> <font color="white">Caffeine IOT MarketPlace</font></h1>
+            <p class="hello" align="right"><font color="white">Hello <?php echo $_SESSION["cafUserName"]?> </font> &nbsp;&nbsp;&nbsp;
+                <button type="button" id="Logout" onclick="window.location.href='logout.php'">LOG OUT</button></p>
+        </div>
+
 
 
 <?php
-getProductDetails($servername, $username, $password, $db, $productName);
+    //call the get product details function
+    getProductDetails($servername, $username, $password, $db, $productName);
 
-function getProductDetails($servername, $username, $password, $db, $productName)
-{
-    $dbConnection = mysqli_connect($servername, $username, $password, $db);
+    function getProductDetails($servername, $username, $password, $db, $productName)
+        {
+            $dbConnection = mysqli_connect($servername, $username, $password, $db);
 
-    $query = "SELECT * FROM products WHERE productName = '$productName'";
+            $query = "SELECT * FROM products WHERE productName = '$productName'";
 
-    $result = mysqli_query($dbConnection, $query);
+            $result = mysqli_query($dbConnection, $query);
 
-    if (mysqli_num_rows($result) >= 0) {
-        while ($row = mysqli_fetch_array($result)) {
+            if (mysqli_num_rows($result) >= 0)
+                {
+                while ($row = mysqli_fetch_array($result))
+                    {
+                        $productImage = $row['productImage'];
+                        $productPrice = $row['productPrice'];
+                        $productDescription = $row['productDescription'];
+                        $productStock = $row['stock'];  ?>
 
-            $productImage = $row['productImage'];
-            $productPrice = $row['productPrice'];
-            $productDescription = $row['productDescription'];
-            $productStock = $row['stock'];
+        <div id="prodDetails">
+            <h2 align="center"> <?php echo $productName; ?> </h2>
 
-            ?>
-            <div id="prodDetails">
-                <h2 align="center"> <?php echo $productName; ?> </h2>
-                <div id="prodimage">
-                    <img class="img-responsive" src="<?php echo 'images/' . $productImage; ?>" border="5px">  &nbsp;&nbsp;&nbsp;&nbsp;
-                    Product price $ <?php echo $productPrice ?>
-                </div>
-                <div id="prodDescription">
-                    <h5><u>Product Description</u></h5>
-                    <p><?php echo $productDescription; ?></p>
-                </div>
+            <div id="prodimage">
+                <img class="img-responsive" src="<?php echo 'images/' . $productImage; ?>" border="5px">  &nbsp;&nbsp;&nbsp;&nbsp;
+                Product price $ <?php echo $productPrice ?>
             </div>
-            <?php
+
+            <div id="prodDescription">
+                <h5><u>Product Description</u></h5>
+                <p><?php echo $productDescription; ?></p>
+            </div>
+        </div>
+
+<?php
+                    }
+                }
         }
-    }
-}
 
 ?>
+    </body>
+</html>
