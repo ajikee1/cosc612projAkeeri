@@ -99,11 +99,11 @@
                 <font size="4px">Product price $ <?php echo $productPrice ?> </font>
 
                 <form id="addToCartForm">
-                    <input type="hidden" name="addProductName" value="<?php echo $productName ?>">
-                    <input type="hidden" name="addProductPrice" value="<?php echo $productPrice ?>">
+                    <input type="hidden" name="addProductName" value="<?php echo $productName; ?>">
+                    <input type="hidden" name="addProductPrice" value="<?php echo $productPrice; ?>">
 
                     <label for="quantity">Choose a quantity</label>
-                    <select id="quantity" class="browser-default custom-select">
+                    <select name="quantity" class="browser-default custom-select">
                         <option selected>0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -112,8 +112,32 @@
                         <option value="5">5</option>
                         <option value="6">6</option>
                     </select>
-                    <button type="button" id="AddToCartBtn">ADD TO CART</button>
+                    <button  id="AddToCartBtn" type="submit" name="AddToCartBtn">ADD TO CART</button>
                 </form>
+
+                            <!--Javascript to add product to cart-->
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js "></script>
+                    <script>
+                        $("#addToCartForm").submit(function(event)
+                        {
+                            event.preventDefault();
+                            var post_url = "preCartAddLogic.php";
+                            var form_data = $(this).serialize(); //Encode form elements for submission
+                            $.post( post_url, form_data, function(response)
+                            {
+                                //if response says "Product added to cart"", open the cart page
+                                if(response.match("Product added to cart"))
+                                {
+                                    //window.location.href = "listSessionVariables.php";
+                                    window.location.href = "customerCart.php";
+                                }
+                                else
+                                {
+                                    alert("Product currently not available");  //low stock
+                                }
+                            });
+                        });
+                    </script>
             </span>
 
             <div id="prodDescription">
@@ -122,29 +146,6 @@
                 <p><?php echo $productDescription; ?></p>
             </div>
         </div>
-
-        <!--Javascript to add product to cart-->
-        <script>
-            $("#addToCartForm").submit(function(event)
-            {
-                event.preventDefault();
-                var post_url = "precartAddLogic.php";
-                var form_data = $(this).serialize(); //Encode form elements for submission
-                $.post( post_url, form_data, function(response)
-                {
-                    //if response says "Product added to cart"", open the cart page
-                    if(response.match("Product added to cart\""))
-                    {
-                        window.location.href = "customerCart.php";
-                    }
-                    else
-                    {
-                        alert("Product currently not available");  //low stock
-                    }
-                });
-            });
-        </script>
-
 
 <?php
                     }

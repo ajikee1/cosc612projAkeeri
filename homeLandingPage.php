@@ -323,7 +323,7 @@
                         <br>
                         ActivationCode: <input type="text" name="activationCode"><br>
                         <br>
-                        <button id="activateSubmit" class="btn btn-light btn-lg" type="submit" name="activateButton" id="activateBtn">Activate</button>
+                        <button id="activateSubmit" class="btn btn-light btn-lg" type="submit" name="activateButton">Activate</button>
                     </form>
 
                     <!--Displays to prompt the customer for credentials if activation successful -->
@@ -333,7 +333,7 @@
                         <br>
                         Password: <input type="password" name="RegisterPassword"> <br>
                         <br>
-                        <button id="finishRegistrationSubmit" class="btn btn-light btn-lg" type="submit" name="finishRegistrationButton" id="activateBtn">COMPLETE</button>
+                        <button id="finishRegistrationSubmit" class="btn btn-light btn-lg" type="submit" name="finishRegistrationButton">COMPLETE</button>
                     </form>
                 </div>
             </div>

@@ -6,12 +6,12 @@
 
     include 'dbConnection.php';
 
-    $_SESSION["caffeineUsername"]; $_SESSION["caffeineEmail"];
+    $_SESSION["cafUserName"]; $_SESSION["email"];
 
     if (isset($_POST['caffeineUsername']))
     {
         $caffeineUsername = $_POST["caffeineUsername"];
-        $_SESSION["caffeineUsername"] = $caffeineUsername;  //set the session variable to track the logged-in user
+        $_SESSION["cafUserName"] = $caffeineUsername;  //set the session variable to track the logged-in user
 
     }
 
@@ -32,13 +32,13 @@
         $dbConnection = mysqli_connect($servername, $username, $password, $db);
 
         //query to get the password and email from database using username
-        $query = "SELECT email,password FROM customerCredentials WHERE username='" . $_SESSION['caffeineUsername'] . "'";
+        $query = "SELECT email,password FROM customerCredentials WHERE username='" . $_SESSION['cafUserName'] . "'";
         $result = mysqli_query($dbConnection, $query);
 
         while ($row = $result->fetch_assoc())
         {
             $emailFromDB   = $row['email'];
-            $_SESSION["caffeineEmail"] = $emailFromDB; //set the session variable for email
+            $_SESSION["email"] = $emailFromDB; //set the session variable for email
 
             $passwordFromDB   = $row['password']; //get the password of the user
 
