@@ -31,9 +31,9 @@ include 'dbConnection.php';
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
         <style>
-            body, h2, table{
+            h2, table{
                 font-family: Bungee;
-                font-size: x-large;
+                font-size: large;
             }
 
             #total{
@@ -42,7 +42,7 @@ include 'dbConnection.php';
             }
 
             button {
-                font-size: x-large;
+                font-size: large;
             }
         </style>
 
