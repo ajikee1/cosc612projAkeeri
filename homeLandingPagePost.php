@@ -70,6 +70,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contactUs.php">Contact Us</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="customerCart.php">Cart</a>
+                    </li>
                 </ul>
             </nav>
             <!---------------------------------End Navigation Bar-------------------------------------->

@@ -1,93 +1,81 @@
 <?php
-    //Author: Ajith V Keerikkattil
-    //updated: 10/29/2019
+//Author: Ajith V Keerikkattil
+//updated: 10/29/2019
 
-    session_start();
+session_start();
 
-    include 'dbConnection.php';
+include 'dbConnection.php';
 
-    $_SESSION["cafUserName"]; $_SESSION["email"];
+$_SESSION["cafUserName"];
+$_SESSION["email"];
 
-    if (isset($_POST['caffeineUsername']))
-    {
-        $caffeineUsername = $_POST["caffeineUsername"];
-        $_SESSION["cafUserName"] = $caffeineUsername;  //set the session variable to track the logged-in user
+if (isset($_POST['caffeineUsername'])) {
+    $caffeineUsername = $_POST["caffeineUsername"];
+    $_SESSION["cafUserName"]= $caffeineUsername;  //set the session variable to track the logged-in user
 
-    }
+}
 
-    if (isset($_POST['caffeinePassword']))
-    {
-        $caffeinePassword= $_POST["caffeinePassword"];
-    }
+if (isset($_POST['caffeinePassword'])) {
+    $caffeinePassword = $_POST["caffeinePassword"];
+}
 
-    /*$_SESSION['caffeineUsername'] = "ajithmatrik";
-    $caffeinePassword = "test"; */
+//call the login function
+login($servername, $username, $password, $db, $caffeinePassword);
 
-    //call the login function
-    login($servername, $username,$password, $db, $caffeinePassword);
+function login($servername, $username, $password, $db, $caffeinePassword)
+{
 
-    function login($servername, $username,$password, $db, $caffeinePassword)
-    {
+    $dbConnection = mysqli_connect($servername, $username, $password, $db);
 
-        $dbConnection = mysqli_connect($servername, $username, $password, $db);
+    //query to get the password and email from database using username
+    $query = "SELECT email,password FROM customerCredentials WHERE username='" . $_SESSION['cafUserName'] . "'";
+    $result = mysqli_query($dbConnection, $query);
 
-        //query to get the password and email from database using username
-        $query = "SELECT email,password FROM customerCredentials WHERE username='" . $_SESSION['cafUserName'] . "'";
-        $result = mysqli_query($dbConnection, $query);
+    while ($row = $result->fetch_assoc()) {
+        $emailFromDB = $row['email'];
+        $_SESSION["email"] = $emailFromDB; //set the session variable for email
 
-        while ($row = $result->fetch_assoc())
-        {
-            $emailFromDB   = $row['email'];
-            $_SESSION["email"] = $emailFromDB; //set the session variable for email
+        $passwordFromDB = $row['password']; //get the password of the user
 
-            $passwordFromDB   = $row['password']; //get the password of the user
+        $activationIndicatorFromDB = (string)getActivationIndicator($servername, $username, $password, $db); //check to see if the account has been activated
+        $activationIndicatorDesiredStatus = (string)'true';
 
-            $activationIndicatorFromDB = (string) getActivationIndicator($servername, $username, $password, $db); //check to see if the account has been activated
-            $activationIndicatorDesiredStatus = (string) 'true';
-
-            //if (($passwordFromDB == $caffeinePassword) && ($activationIndicatorFromDB == $activationIndicatorDesiredStatus))
-            if ($passwordFromDB == $caffeinePassword)
-            {
-                echo 'Login Success';
-                //header("Location: caffeineHome.php");
-                exit;
-            }
-            else
-            {
-                echo 'Login Fail';
-                unset($_SESSION['caffeineEmail']);
-                unset($_SESSION['caffeineUsername']);
-                echo('Login Failed');
-            }
+        //if (($passwordFromDB == $caffeinePassword) && ($activationIndicatorFromDB == $activationIndicatorDesiredStatus)){
+        if (($passwordFromDB == $caffeinePassword)){
+            echo 'Login Success';
+            //header("Location: caffeineHome.php");
+            exit;
+        } else {
+            echo 'Login Fail';
+            unset($_SESSION['email']);
+            unset($_SESSION["cafUserName"]);
+            echo('Login Failed');
         }
-        mysqli_free_result($result);
-        mysqli_close($dbConnection);
+    }
+    mysqli_free_result($result);
+    mysqli_close($dbConnection);
+}
+
+function getActivationIndicator($servername, $username, $password, $db)
+{
+    $activationIndicatorFromDB = null;
+    $dbConnection2 = mysqli_connect($servername, $username, $password, $db);
+
+    //query to get the activation status from database using email address
+    $query2 = "SELECT activationStatus FROM customerDetails WHERE email='" . $_SESSION['caffeineEmail'] . "'";
+    $result2 = mysqli_query($dbConnection2, $query2);
+
+    if (mysqli_num_rows($result2) > 0) {
+        while ($row = mysqli_fetch_array($result2)) {
+            $activationIndicatorFromDB = $row['activationStatus'];
+        }
+        mysqli_free_result($result2);
+        mysqli_close($dbConnection2);
+    } else {
+        echo 'Customer with email not found in the database';
     }
 
-    function getActivationIndicator($servername, $username,$password, $db)
-    {
-        $activationIndicatorFromDB = null;
-        $dbConnection2 = mysqli_connect($servername, $username, $password, $db);
+    return $activationIndicatorFromDB;
 
-        //query to get the activation status from database using email address
-        $query2 = "SELECT activationStatus FROM customerDetails WHERE email='" . $_SESSION['caffeineEmail'] . "'";
-        $result2 = mysqli_query($dbConnection2, $query2);
-
-        if (mysqli_num_rows($result2) > 0)
-        {
-            while ($row = mysqli_fetch_array($result2))
-            {
-                $activationIndicatorFromDB = $row['activationStatus'];
-            }
-            mysqli_free_result($result2);
-            mysqli_close($dbConnection2);
-        }
-        else
-        {
-            echo 'Customer with email not found in the database';
-        }
-
-        return $activationIndicatorFromDB;
-
-    }
+}
 

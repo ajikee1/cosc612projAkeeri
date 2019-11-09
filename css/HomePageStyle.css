@@ -31,7 +31,7 @@ p{
     font-family: 'Bungee';
 }
 
-h1, .navbar-brand, .navbar-nav{
+h1, h2, .navbar-brand, .navbar-nav, .container{
     font-family: 'Bungee';
 }
 
