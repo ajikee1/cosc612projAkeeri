@@ -31,8 +31,18 @@ include 'dbConnection.php';
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
         <style>
-            h2, table{
+            body, h2, table{
                 font-family: Bungee;
+                font-size: x-large;
+            }
+
+            #total{
+                text-align: right;
+                font-size: x-large;
+            }
+
+            button {
+                font-size: x-large;
             }
         </style>
 
@@ -71,7 +81,7 @@ include 'dbConnection.php';
 
         <div class="container">
         <div class="table-responsive">
-            <table class= "table table-bordered table-responsive-lg table-hover table-dark">
+            <table class= "table table-bordered table-responsive-lg table-hover table-dark" id="cartTable">
              <thead>
                 <tr>
                     <th>Product Name</th>
@@ -123,6 +133,7 @@ include 'dbConnection.php';
                                 });
                             });
                         </script>
+
                     </td>
                 </tr>
 <?php
@@ -133,11 +144,34 @@ include 'dbConnection.php';
     mysqli_close($dbConnection);
 }
 ?>
-
             </tbody>
          </table>
-        </div>
-        </div>
+    </div>
+
+            <!--------------------------Get the total due ---------------------------------------------------------------------->
+            <button type="button" id="getTotalButton" onclick="totalDue();">GET TOTAL</button>
+            <div id="total"></div>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script>
+                function totalDue() {
+                    var total = 0;
+                    var tableElem = window.document.getElementById("cartTable");
+
+                    for (var i = 1; i < tableElem.rows.length; i++)
+                    {
+                        total = total + parseFloat(tableElem.rows[i].cells[2].innerHTML);
+                    }
+
+                    document.getElementById("total").innerHTML = "TOTAL AMOUNT DUE: $ " + total.toString();
+                }
+
+            </script>
+
+            <!--------------------------End Get the total due ---------------------------------------------------------------------->
+</div>
+
+
     </body>
 </html>
 
