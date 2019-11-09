@@ -10,8 +10,8 @@ include 'dbConnection.php';
 
             $dbConnection = mysqli_connect($servername, $username, $password, $db);
 
-            //$customerUserName = $_SESSION["cafUserName"];
-            $customerUserName = "ajithmatrik";
+            $customerUserName = $_SESSION["cafUserName"];
+            //$customerUserName = "ajithmatrik";
 
 
             $query = "SELECT * FROM customerCart WHERE username = '$customerUserName'";
