@@ -68,7 +68,7 @@ button {
 }
 
 
-input[type=password], input[type=email] {
+input[type=password], input[type=email] input[type=textarea] {
     font-family: 'Bungee';
     height: 5%;
     border: 2px solid black;
