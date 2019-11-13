@@ -39,6 +39,7 @@ function getTopProducts($servername, $username, $password, $db)
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
 
@@ -231,7 +232,13 @@ function getTopProducts($servername, $username, $password, $db)
                 }
                 else
                 {
-                    alert(response);  //display the error from the database
+                    swal({
+                        title: "Caffeine Alert",
+                        timer: 3000,
+                        response
+                    });
+
+                    // alert(response);  //display the error from the database
                 }
             });
         });
@@ -289,8 +296,11 @@ function getTopProducts($servername, $username, $password, $db)
                     }
                     else
                     {
-                        alert("Login failed. Please check credentials and try again!");  //display the error from the database
-                        window.location.reload();
+                        swal({
+                            title: "Caffeine Alert",
+                            timer: 3000,
+                            text: "Login failed. Please check credentials and try again!"
+                        });
                     }
                 });
             });
@@ -354,7 +364,11 @@ function getTopProducts($servername, $username, $password, $db)
             }
             else
             {
-                alert("Activation failed,try again");
+                swal({
+                    title: "Caffeine Alert",
+                    timer: 3000,
+                    text: "Activation failed,try again"
+                });
             }
         });
     });
@@ -372,7 +386,12 @@ function getTopProducts($servername, $username, $password, $db)
             }
             else
             {
-                alert("Registration failed! Please try again");
+                swal({
+                    title: "Caffeine Alert",
+                    timer: 3000,
+                    text: "Registration failed! Please try again"
+                });
+
             }
         });
     });
