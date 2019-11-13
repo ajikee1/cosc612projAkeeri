@@ -19,8 +19,9 @@
 
                                      <div class="col-lg-4" xmlns="http://www.w3.org/1999/html">
                                         <div class="thumbnail" align="center">
-                                            <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img class="img-responsive" src="<?php echo 'images/' . $row['productImage']; ?>" style="width:100%;">&nbsp;
-                                            <div class="caption">
+                                            <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img class="img-responsive" src="<?php echo 'images/' . $row['productImage']; ?>" style="width:100%;">
+                                            </a>
+                                                <div class="caption">
                                                 <p> <?php echo $row['productName']; ?></p>
                                                 <p><?php echo "$ " . $row['productPrice']; ?></p>
                                             </div>
@@ -49,6 +50,7 @@
                 button {
                     font-size: large;
                 }
+
             </style>
 
         </head>

@@ -27,6 +27,14 @@ if (strlen($keyword) > 0) {
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+        <style>
+            #noProdMessage {
+                padding-top: 100px;
+                padding-left: 10%;
+            }
+        </style>
+
     </head>
 
 
@@ -42,13 +50,13 @@ function getSearchProducts($servername, $username, $password, $db, $keyword)
     <div class="row">
 
     <?php
-    if (mysqli_num_rows($result) >= 0) {
+    if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_array($result)) {
             $_SESSION['productNameField'] = $row['productName'];
             ?>
             <div class="col-lg-4" xmlns="http://www.w3.org/1999/html">
                 <div class="thumbnail" align="center">
-                    <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img class="img-responsive" src="<?php echo 'images/' . $row['productImage']; ?>" style="width:100%;">&nbsp;
+                    <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img class="img-responsive" src="<?php echo 'images/' . $row['productImage']; ?>" style="width:100%;"></a>
                         <div class="caption">
                             <p> <?php echo $row['productName']; ?></p>
                             <p><?php echo "$ " . $row['productPrice']; ?></p>
@@ -57,6 +65,11 @@ function getSearchProducts($servername, $username, $password, $db, $keyword)
             </div>
             <?php
         }
+    }
+    else{
+        ?>
+        <p id="noProdMessage"> <h1>Sorry! Unfortunately, we are not selling the item you are looking for!</h1></p>
+        <?php
     }
     ?>
     </div>
@@ -79,7 +92,7 @@ function getAllProducts($servername, $username, $password, $db)
             ?>
             <div class="col-lg-4" xmlns="http://www.w3.org/1999/html">
                 <div class="thumbnail" align="center">
-                    <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img class="img-responsive" src="<?php echo 'images/' . $row['productImage']; ?>" style="width:100%;">&nbsp;
+                    <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img class="img-responsive" src="<?php echo 'images/' . $row['productImage']; ?>" style="width:100%;">&nbsp;</a>
                         <div class="caption">
                             <p> <?php echo $row['productName']; ?></p>
                             <p><?php echo "$ " . $row['productPrice']; ?></p>

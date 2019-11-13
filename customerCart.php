@@ -164,6 +164,7 @@ include 'dbConnection.php';
     </div>
 
             <!--------------------------Get the total due ---------------------------------------------------------------------->
+           <a href="homeLandingPagePost.php">Not done shopping? Click here to add more items....</a><br> <br>
             <button type="button" id="getTotalButton" onclick="totalDue();">GET TOTAL</button>
             <div id="total"></div>
 

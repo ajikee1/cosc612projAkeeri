@@ -6,5 +6,9 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
+
+    //godaddy
+    //$username = "Ajith";
+    //$password = "ajithk";
     $db = "caffeineDB";
     ?>
