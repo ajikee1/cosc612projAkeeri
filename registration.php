@@ -50,7 +50,7 @@ function registration($servername, $username, $password, $db, $firstName, $lastN
     if ($statement != null) {
         echo "Registration successful";
         //call the email function to email the activation code
-        email($email, $firstName, $lastName, $actCode);
+        mailTwo($email, $firstName, $lastName, $actCode);
     }
     $statement->close();
 }

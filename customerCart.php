@@ -254,7 +254,7 @@ include 'dbConnection.php';
                     <input type="hidden" name="no_note" value="0">
                     <input type="hidden" name="cn" value="Add special instructions to the seller:">
                     <input type="hidden" name="no_shipping" value="2">
-                    <input type="hidden" name="custom" id="custom" value=" ">
+                    <input type="hidden" name="custom" id="custom" value="<?php echo $_SESSION["cafUserName"]; echo " "; echo $_SESSION["email"];?> ">
                     <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHosted">
                     <input type="image" src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="Check out with PayPal" />
                     <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">

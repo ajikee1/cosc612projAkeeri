@@ -351,7 +351,7 @@ function getTopProducts($servername, $username, $password, $db)
             {
                 var x = document.getElementById("chooseCredentialsForm");
                 var y = document.getElementById("activateFrom");
-                var heading = document.getElementById("activationTitle")
+                var heading = document.getElementById("activationTitle");
                 heading.replaceWith( "Choose Credentials" ); //change the heading of the page
                 x.style.display = "block"; //show the choose credentials form
                 y.style.display = "none"; //hide the activation form
