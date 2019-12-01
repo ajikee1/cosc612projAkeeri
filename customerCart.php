@@ -1,6 +1,12 @@
 <?php
 
 session_start();
+
+if (!isset($_SESSION["cafUserName"]))
+{
+    header("Location: homeLandingPage.php");
+}
+
 include 'dbConnection.php';
 
     getAllProductsInCart($servername, $username, $password, $db);

@@ -14,7 +14,7 @@ function getTopProducts($servername, $username, $password, $db)
 
             <div class="col-lg-4" xmlns="http://www.w3.org/1999/html">
                 <div class="thumbnail" align="center">
-                    <a href=" productDetails.php?productName=<?php echo $row['productName'] ?>"><img class="img-responsive" src="<?php echo 'images/' . $row['productImage']; ?>" style="width:100%;"> </a>&nbsp;
+                    <a href=" productDetailsNoLogin.php?productName=<?php echo $row['productName'] ?>"><img class="img-responsive" src="<?php echo 'images/' . $row['productImage']; ?>" style="width:100%;"> </a>&nbsp;
                     <div class="caption">
                         <p> <?php echo $row['productName']; ?></p>
                         <p><?php echo "$ " . $row['productPrice']; ?></p>

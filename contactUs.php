@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ?>
 
 <html>
@@ -47,7 +47,20 @@
 
 <!---------------------------------Navigation Bar-------------------------------------->
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-    <a class="navbar-brand" href="homeLandingPagePost.php">Home</a>
+
+    <?php
+    if (!isset($_SESSION["cafUserName"]))
+    {
+        ?>
+        <a class="navbar-brand" href="homeLandingPage.php">Home</a>
+    <?php
+    }
+    else { ?>
+        <a class="navbar-brand" href="homeLandingPagePost.php">Home</a>
+        <?php
+    }
+    ?>
+    ?>
     <!-- Links -->
     <ul class="navbar-nav">
         <li class="nav-item">
